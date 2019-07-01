@@ -1,0 +1,156 @@
+  package calculator;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+ import java.lang.Math; 
+public class Calculator extends JFrame implements ActionListener
+
+{
+    JTextField tf,tf1;
+    JLabel l,l1;
+    JButton b,b2,b3,b4,b5,b6,b7,b8;
+    JButton b1;
+    public Calculator()
+    {
+           tf=new JTextField();
+           tf.setBounds(180,120,60,30);
+          
+           tf1=new JTextField();
+           tf1.setBounds(250,120,60,30);
+           
+           l1=new JLabel("=");
+           l1.setBounds(320,120,30,20);
+           
+           l=new JLabel("Answer");
+           l.setBounds(360,120,60,30);  
+          
+           b=new JButton("+");
+           b.setBounds(180,160,80,30);
+           
+           b2=new JButton("-");
+           b2.setBounds(270,160,80,30);
+          
+           b3=new JButton("%");
+           b3.setBounds(270,200,80,30);
+           
+           b4=new JButton("*");
+           b4.setBounds(180,200,80,30);
+               
+           b5=new JButton("/");
+           b5.setBounds(180,240,80,30);
+           
+           b6=new JButton("x^2");
+           b6.setBounds(270,240,80,30);
+           
+           b7=new JButton("Sqrt");
+           b7.setBounds(180,280,80,30);
+           
+           b8=new JButton("clear");
+           b8.setBounds(270,280,80,30);
+           
+           add(l1);
+           add(l);
+           add(tf);
+           add(b);
+           add(tf1);
+           add(b2);
+           add(b3);
+           add(b4);
+           add(b5);
+           add(b6);
+           add(b7);
+           add(b8);
+           
+           b.addActionListener(this );
+           b2.addActionListener(this);
+           b3.addActionListener(this);
+           b4.addActionListener(this);
+           b5.addActionListener(this);
+           b6.addActionListener(this);
+           b7.addActionListener(this);
+           b8.addActionListener(this);
+           
+           setTitle("Demo");
+           setSize(600,600);
+           setLayout(null);
+           setVisible(true);
+        
+    }
+     @Override
+    public void actionPerformed(ActionEvent e) {
+        if(e.getSource()==b)
+        {
+           int n1=Integer.parseInt(tf.getText());
+           int n2=Integer.parseInt(tf1.getText());
+           int res=n1+n2;
+           String rs=Integer.toString(res);
+           l.setText(rs);
+        }
+         else if(e.getSource()==b2)
+        {
+           int n1=Integer.parseInt(tf.getText());
+           int n2=Integer.parseInt(tf1.getText());
+           int res=n1-n2;
+           String rs=Integer.toString(res);
+           l.setText(rs);         
+        }
+        else if(e.getSource()==b3)
+        {
+           int n1=Integer.parseInt(tf.getText());
+           int n2=Integer.parseInt(tf1.getText());
+           int res=n1%n2;
+           String rs=Integer.toString(res);
+           l.setText(rs);         
+        }
+         else if(e.getSource()==b4)
+        {
+           int n1=Integer.parseInt(tf.getText());
+           int n2=Integer.parseInt(tf1.getText());
+           int res=n1*n2;
+           String rs=Integer.toString(res);
+           l.setText(rs);         
+        }
+         else if(e.getSource()==b5)
+        {
+           int n1=Integer.parseInt(tf.getText());
+           int n2=Integer.parseInt(tf1.getText());
+           int res=n1/n2;
+           String rs=Integer.toString(res);
+           l.setText(rs);         
+        }
+         else if(e.getSource()==b6)
+        {
+           int n1=Integer.parseInt(tf.getText());
+           int res=n1*n1;
+           String rs=Integer.toString(res);
+           l.setText(rs);         
+        }
+          else if(e.getSource()==b7)
+        {
+           int n1=Integer.parseInt(tf.getText());            
+           int res=(int) Math.sqrt(n1);
+           String rs=Integer.toString(res);
+           l.setText(rs); 
+            
+        }
+        else
+        {
+            tf.setText("");
+            tf1.setText("");                   
+            l.setText("Answer");
+        }
+        
+        
+    }
+    
+    public static void main(String[] args) 
+    {
+       Calculator a=new Calculator(); 
+    }
+
+ 
+    }
+
